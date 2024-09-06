@@ -12,7 +12,6 @@ const RecurrenceOptions = () => {
     setRecurrence({ ...recurrence, interval: parseInt(e.target.value) });
   };
 
-  // Handle specific days for weekly recurrence
   const handleSpecificDaysChange = (day: number) => {
     const newDays = recurrence.specificDays?.includes(day)
       ? recurrence.specificDays.filter(d => d !== day)
@@ -21,7 +20,6 @@ const RecurrenceOptions = () => {
     setRecurrence({ ...recurrence, specificDays: newDays });
   };
 
-  // Handle nth day of month for monthly recurrence
   const handleNthDayChange = (nth: number, day: number) => {
     setRecurrence({ ...recurrence, nthDayOfMonth: { nth, day } });
   };
@@ -62,7 +60,6 @@ const RecurrenceOptions = () => {
           />
         </div>
 
-        {/* Weekly recurrence specific days */}
         {recurrence.pattern === 'weekly' && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Select Days of the Week:</label>
@@ -81,7 +78,6 @@ const RecurrenceOptions = () => {
           </div>
         )}
 
-        {/* Monthly recurrence nth day */}
         {recurrence.pattern === 'monthly' && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Nth Day of Month:</label>
